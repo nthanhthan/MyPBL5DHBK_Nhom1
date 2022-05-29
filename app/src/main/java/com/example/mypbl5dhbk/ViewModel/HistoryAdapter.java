@@ -38,7 +38,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public void onBindViewHolder(@NonNull HistoryAdapter.ViewHolder holder, int position) {
         User user = listUser.get(position);
         holder.tvName.setText(user.getName());
-        holder.tvTime.setText(String.valueOf(user.getId()));
+        holder.tvTime.setText(user.getTime());
         if(!user.getAvatar().isEmpty())
         Picasso.get().load(user.getAvatar()).into(holder.ivHistoryImage);
 
@@ -65,7 +65,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             view.setOnClickListener(this);
             // textView = (TextView) view.findViewById(R.id.textView);
         }
-
         @Override
         public void onClick(View view) {
             onPersonListener.onPersonClick(getAdapterPosition());

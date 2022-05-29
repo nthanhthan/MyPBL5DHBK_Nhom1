@@ -3,8 +3,10 @@ package com.example.mypbl5dhbk.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.sql.Timestamp;
+
 public class User implements Parcelable {
-    private int id;
+    private String time;
     private String name;
     private String avatar;
     public User(){
@@ -13,7 +15,7 @@ public class User implements Parcelable {
     }
 
     protected User(Parcel in) {
-        id = in.readInt();
+        time = in.readString();
         name = in.readString();
         avatar = in.readString();
     }
@@ -30,12 +32,12 @@ public class User implements Parcelable {
         }
     };
 
-    public int getId() {
-        return id;
+    public String getTime() {
+        return time;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setTime(String id) {
+        this.time = id;
     }
 
     public String getName() {
@@ -54,8 +56,8 @@ public class User implements Parcelable {
         this.avatar = avatar;
     }
 
-    public User(int id, String name, String avatar) {
-        this.id = id;
+    public User(String id, String name, String avatar) {
+        this.time = id;
         this.name = name;
         this.avatar = avatar;
     }
@@ -67,7 +69,7 @@ public class User implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
+        parcel.writeString(time);
         parcel.writeString(name);
         parcel.writeString(avatar);
 

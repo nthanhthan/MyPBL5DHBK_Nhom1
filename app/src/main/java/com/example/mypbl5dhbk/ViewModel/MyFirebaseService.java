@@ -33,19 +33,20 @@ public class MyFirebaseService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // handle a notification payload.
-//        Log.d("DEBUG", "Message Notification Body: ");
-//        if (remoteMessage.getNotification() != null) {
-//            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+        Log.d("DEBUG", "Message Notification Body: ");
+        if (remoteMessage.getNotification() != null) {
+            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+
+            sendNotification(remoteMessage.getNotification().getBody(),"DA NHAN");
+        }
+//        Map<String,String> stringMap=remoteMessage.getData();
 //
-//            sendNotification(remoteMessage.getNotification().getBody());
-//        }
-        Map<String,String> stringMap=remoteMessage.getData();
+//      //  String name=remoteMessage.getNotification().getBody();
+//        String name=stringMap.get("name");
+//        String des=stringMap.get("type");
+       // String des="haha";
 
-        String name=stringMap.get("name");
-        String des=stringMap.get("description");
-        sendNotification(name,des);
     }
-
     @Override
     public void onNewToken(String token) {
         Log.d("DEBUG", "Refreshed token: " + token);
@@ -57,7 +58,7 @@ public class MyFirebaseService extends FirebaseMessagingService {
         // TODO: Implement this method to send token to your app server.
     }
 
-    private void sendNotification(String name, String messageBody) {
+    public void sendNotification(String name, String messageBody) {
         Intent intent = new Intent(this, MainApp.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
