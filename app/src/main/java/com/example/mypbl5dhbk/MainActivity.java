@@ -53,6 +53,13 @@ public class MainActivity extends AppCompatActivity {
         View viewRoot = binding.getRoot();
         setContentView(viewRoot);
         fAuth= FirebaseAuth.getInstance();
+        binding.btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.edEmail.setText(null);
+                binding.edPassword.setText(null);
+            }
+        });
         binding.btnGetIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
     private  void notification(){
         Intent intent = new Intent(this, MainApp.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

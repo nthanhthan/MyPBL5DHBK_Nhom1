@@ -5,20 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/nen4"
     tools:context=".View.MainApp">
-  <Switch
-      android:id="@+id/sw_open"
+
+
+  <TextView
+
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginLeft="4dp"
+      android:fontFamily="@font/acme"
+      android:rotationX="5"
+      android:text="HISTORY"
+      android:textColor="@color/white"
+      android:textSize="50sp" />
+
+  <ToggleButton
+      android:id="@+id/toggle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="80dp"
+      android:background="@drawable/toggle"
+      android:text="ToggleButton"
+      android:textOff=""
+      android:textOn=""
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <Switch
+      android:id="@+id/sw_open"
+      android:layout_width="200dp"
+      android:layout_height="40dp"
       android:layout_marginStart="16dp"
       android:layout_marginTop="8dp"
+      android:fontFamily="@font/aladin"
+      android:rotationX="1"
       android:showText="false"
       android:text="Open door"
+      android:textColor="@color/white"
+      android:textSize="29dp"
       app:layout_constraintStart_toStartOf="parent"
       tools:ignore="MissingConstraints"></Switch>
+
+
   <androidx.recyclerview.widget.RecyclerView
-      android:layout_width="match_parent"
       android:id="@+id/rv_history"
-      android:layout_height="match_parent">
-  </androidx.recyclerview.widget.RecyclerView>
+      android:layout_width="match_parent"
+      android:layout_height="500dp"
+      android:background="@drawable/nen"></androidx.recyclerview.widget.RecyclerView>
+
+<!--  <ToggleButton-->
+<!--      android:id="@+id/toggleButton"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      android:text="ToggleButton" />-->
+
+  <com.google.android.material.bottomnavigation.BottomNavigationView
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:layout_marginBottom="60dp"
+      android:background="#3C85A3"
+      app:menu="@menu/item_menu" />
+
+
 </LinearLayout>

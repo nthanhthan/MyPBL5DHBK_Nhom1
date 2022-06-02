@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item
+    android:id="@+id/main"
+    android:icon="@drawable/nen2"
+    android:title="Trang chủ"
+    ></item>
+    <item
+        android:id="@+id/history"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Trang lịch sử"
+        ></item>
+    <item
+        android:id="@+id/OpenDoor"
+        android:icon="@drawable/ic_baseline_vpn_key_24"
+        android:title="Mở cửa"
+        ></item>
+    <item
+        android:id="@+id/Logout"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="Đăng xuất"
+        ></item>
+</menu>
