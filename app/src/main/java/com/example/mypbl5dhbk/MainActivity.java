@@ -165,22 +165,24 @@ public class MainActivity extends AppCompatActivity {
         for (int j = low; j < high; j++) {
             String []s1=newList.get(j).getTime().split(":",2);
             SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-
             String []s2=pivot.getTime().split(":",2);
             Date d1=sdf.parse(s1[0]);
             Date d2=sdf.parse(s2[0]);
             // Nếu phần tử hiện tại nhỏ hơn chốt
-            if (d2.compareTo(d1)<0) {
-                if (s2[1].compareTo(s1[1]) < 0) {
-                    i++;
-                    User temp = new User(newList.get(i).getTime(), newList.get(i).getName(), newList.get(i).getAvatar());
+            Log.d("DEBUG",s2[1] + "++" +s1[1]+"++"+ s2[1].compareTo(s1[1]));
+            if (  d2.compareTo(d1)<=0 ) {
+                Log.d("DEBUG",d2+ " after"+ d1);
+
+                //if (s2[1].compareTo(s1[1]) < 0) {
+                     i++;
+                    User temp = new User(newList. get(i).getTime(), newList.get(i).getName(), newList.get(i).getAvatar());
                     newList.get(i).setName(newList.get(j).getName());
                     newList.get(i).setAvatar(newList.get(j).getAvatar());
                     newList.get(i).setTime(newList.get(j).getTime());
                     newList.get(j).setName(temp.getName());
                     newList.get(j).setAvatar(temp.getAvatar());
                     newList.get(j).setTime(temp.getTime());
-                }
+              // }
             }
         }
         User temp = new User(newList.get(i + 1).getTime(),newList.get(i + 1).getName(),newList.get(i + 1).getAvatar());
