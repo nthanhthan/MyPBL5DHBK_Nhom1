@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/nen4"
+    tools:context=".View.MainApp">
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/acme"
+        android:rotationX="5"
+        android:text="HISTORY"
+        android:textColor="@color/white"
+        android:textSize="50sp" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_history"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@drawable/nen"></androidx.recyclerview.widget.RecyclerView>
+
+    <!--  <ToggleButton-->
+    <!--      android:id="@+id/toggleButton"-->
+    <!--      android:layout_width="match_parent"-->
+    <!--      android:layout_height="wrap_content"-->
+    <!--      android:text="ToggleButton" />-->
+
+
+
+</LinearLayout>

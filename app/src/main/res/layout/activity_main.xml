@@ -113,6 +113,9 @@
         android:gravity="center"
         android:layout_weight="1">
 
+        <!--            android:background="@drawable/ic_rectangle_grad"-->
+        <!--            android:fontFamily="@font/roboto_medium"-->
+
         <Button
             android:id="@+id/btn_getIn"
             android:layout_width="wrap_content"
@@ -121,8 +124,7 @@
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="23sp" />
-        <!--            android:background="@drawable/ic_rectangle_grad"-->
-        <!--            android:fontFamily="@font/roboto_medium"-->
+
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"

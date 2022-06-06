@@ -21,41 +21,11 @@
       android:textColor="@color/white"
       android:textSize="50sp" />
 
-  <ToggleButton
-      android:id="@+id/toggle"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="80dp"
-      android:background="@drawable/toggle"
-      android:text="ToggleButton"
-      android:textOff=""
-      android:textOn=""
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
-
-  <Switch
-      android:id="@+id/sw_open"
-      android:layout_width="200dp"
-      android:layout_height="40dp"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="8dp"
-      android:fontFamily="@font/aladin"
-      android:rotationX="1"
-      android:showText="false"
-      android:text="Open door"
-      android:textColor="@color/white"
-      android:textSize="29dp"
-      app:layout_constraintStart_toStartOf="parent"
-      tools:ignore="MissingConstraints"></Switch>
-
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rv_history"
       android:layout_width="match_parent"
-      android:layout_height="500dp"
+      android:layout_height="550dp"
       android:background="@drawable/nen"></androidx.recyclerview.widget.RecyclerView>
 
 <!--  <ToggleButton-->

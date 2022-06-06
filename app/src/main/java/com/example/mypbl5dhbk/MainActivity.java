@@ -61,10 +61,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         binding.btnGetIn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 String name=binding.edEmail.getText().toString();
                 String pass=binding.edPassword.getText().toString();
+
                 listUser=new ArrayList<>();
                 fAuth.signInWithEmailAndPassword(name,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -105,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         }else{
+                            Log.d("DEBUG","okee");
                             Toast.makeText(MainActivity.this,"ThatBai",Toast.LENGTH_SHORT).show();
                         }
                     }

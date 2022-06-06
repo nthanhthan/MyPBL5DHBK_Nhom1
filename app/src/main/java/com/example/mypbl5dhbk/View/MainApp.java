@@ -68,28 +68,7 @@ public class MainApp extends AppCompatActivity implements HistoryAdapter.OnPerso
                     }
                 });
 
-        binding.swOpen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean checkOpen=binding.swOpen.isChecked();
-                FirebaseDatabase database=FirebaseDatabase.getInstance();
-                DatabaseReference myRef=database.getReference("Door");
-                myRef.setValue(checkOpen);
-                myRef.addValueEventListener(new ValueEventListener() {
-                 @Override
-                 public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
-                     Boolean checkDoor=(Boolean) snapshot.getValue();
-                     binding.swOpen.setChecked(checkDoor);
-                     Log.d("DEBUG1",checkDoor.toString());
-                 }
 
-                 @Override
-                 public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
-
-                 }
-             });
-            }
-        });
         binding.rvHistory.setLayoutManager(new LinearLayoutManager(this));
         listUser=new ArrayList<>();
         historyAdapter=new HistoryAdapter(listUser,this);
