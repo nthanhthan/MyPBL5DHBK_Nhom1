@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpenDoorFragment"
+    android:orientation="vertical"
+    android:background="@drawable/opendoor">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-250dp"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/acme"
+        android:rotationX="5"
+        android:text="OPEN DOOR"
+        android:textColor="@color/white"
+        android:textSize="50sp" />
+
+
+    <ToggleButton
+        android:id="@+id/toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="80dp"
+        android:background="@drawable/toggle"
+        android:text="ToggleButton"
+        android:textOff=""
+        android:textOn=""
+/>
+
+
+</LinearLayout>
