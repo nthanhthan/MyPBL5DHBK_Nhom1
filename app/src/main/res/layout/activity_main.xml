@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/aaa"
+    android:background="@drawable/login"
     android:orientation="vertical"
 
     android:weightSum="7"
@@ -16,26 +16,38 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <ImageView
+
+                android:layout_width="375dp"
+                android:layout_height="207dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/ic_baseline_store_24" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center">
-                <ImageView
+
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+
+                    android:layout_marginTop="80dp"
+
+                    android:fontFamily="@font/aguafina_script"
+                    android:text="Welcome   to   SmartDoor !!!"
+                    android:textSize="30dp" />
+
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="right|center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                />// android:src="@drawable/ic_ui_grad"/>
-            </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
     <LinearLayout
@@ -52,11 +64,12 @@
             android:gravity="bottom">
 
             <TextView
-
+                android:drawableRight="@drawable/ic_baseline_login_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:text="Login"
+                android:textStyle="bold|italic"
                 android:textColor="@color/black"
                 android:textSize="50sp"
                 android:layout_gravity="center"/>
@@ -123,7 +136,9 @@
             android:text="Get in"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="23sp" />
+            android:textSize="23sp"
+            android:backgroundTint="#0000FF"
+            />
 
         <Button
             android:id="@+id/btn_cancel"
@@ -133,6 +148,57 @@
             android:layout_marginLeft="40dp"
             android:textAllCaps="false"
             android:textColor="#ffffff"
-            android:textSize="23sp" />
+            android:textSize="23sp"
+            android:backgroundTint="#0000FF"
+        />
+
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        >
+
+        <!--            android:background="@drawable/ic_rectangle_grad"-->
+        <!--            android:fontFamily="@font/roboto_medium"-->
+
+        <ImageView
+            android:id="@+id/im1"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:rotationX="-4"
+            android:src="@drawable/ic_baseline_camera_outdoor_24" />
+
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_baseline_phonelink_lock_24"
+            app:layout_constraintTop_toBottomOf="@id/im1"/>
+
+        <ImageView
+
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_baseline_person_pin_24"
+            app:layout_constraintTop_toBottomOf="@id/im1"/>
+
+    </LinearLayout>
+
 </LinearLayout>

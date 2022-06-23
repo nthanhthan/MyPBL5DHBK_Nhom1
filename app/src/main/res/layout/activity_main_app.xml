@@ -5,31 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/nen4"
+    android:background="@color/white"
     tools:context=".View.MainApp">
 
 
   <FrameLayout
       android:id="@+id/frameLayout"
       android:layout_width="match_parent"
-      android:layout_height="650dp">
+      android:layout_height="600dp">
       app:layout_constraintBottom_toBottomOf="@+id/BottomNavigationView"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
   </FrameLayout>
 
-  <com.google.android.material.bottomnavigation.BottomNavigationView
-      android:id="@+id/bottomNavigationView"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:background="#3C85A3"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:menu="@menu/item_menu">
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        app:itemTextColor="#0033CC"
+        app:itemIconSize="30dp"
+        app:itemIconTint="#0033CC"
+        app:itemTextAppearanceActive="@style/Widget.Design.BottomNavigationView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/item_menu">
 
-  </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </LinearLayout>
