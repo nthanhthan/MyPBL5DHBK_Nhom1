@@ -46,8 +46,9 @@ public class OpenDoorFragment extends Fragment {
                     @Override
                     public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
                         Boolean checkDoor=(Boolean) snapshot.getValue();
-                        toggleButton.setChecked(checkDoor);
                         Log.d("DEBUG1",checkDoor.toString());
+                        toggleButton.setChecked(checkDoor);
+
                     }
 
 

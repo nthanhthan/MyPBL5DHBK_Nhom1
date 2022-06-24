@@ -77,18 +77,24 @@ public class MainActivity extends AppCompatActivity {
                                    listUser.clear();
                                     for (DataSnapshot i:snapshot.getChildren()){
                                         User user=i.getValue(User.class);
+                                        Integer id=Integer.parseInt(i.getKey().substring(4));
+                                        user.setId(id);
+                                        Log.d("debug1",user.getId().toString());
                                         listUser.add(user);
                                     }
                                     try {
                                         ShowList(listUser);
+                                        for(User i:newList){
+                                            Log.d("debug",i.getId().toString());
+                                        }
                                     } catch (ParseException e) {
                                         e.printStackTrace();
                                     }
                                     if(newList.get(0).getName().compareTo("Unknown")==0)
-                                    notification();
-////                                    if(listUser.size()>0){
+                                        notification();
+//                                    if(listUser.size()>0){
 //                                        sort(0,listUser.size()-1);
-////                                        nameUser=newList.get(0).getTime();}
+//                                        nameUser=newList.get(0).getTime();}
                                     Intent intent=new Intent(getApplicationContext(), MainApp.class);
                                     Bundle bundle=new Bundle();
                                     bundle.putParcelableArrayList("listUser",newList);
@@ -103,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         }else{
-                            Log.d("DEBUG","okee");
                             Toast.makeText(MainActivity.this,"ThatBai",Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -115,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private  void notification(){
+        Log.d("Debug","Thongbao");
         Intent intent = new Intent(this, MainApp.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
@@ -143,7 +149,8 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
         notificationManager.notify(0, notificationBuilder.build());
-    } private void ShowList(ArrayList<User> newList1) throws ParseException {
+    }
+    private void ShowList(ArrayList<User> newList1) throws ParseException {
         if(newList1.size()>0){
             newList.clear();
             for(User i:newList1){
@@ -156,9 +163,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Debug","khong co");
         }
     }
-    public static void sort(int low, int high) throws ParseException {
+    public static  void sort(int low,int high) throws  ParseException{
         if (low < high) {
-            Log.d("DEBUG","SORT");
             int pi = partition( low, high);
 
             sort( low, pi - 1);
@@ -167,40 +173,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     static int partition(int low, int high) throws ParseException {
-        Log.d("DEBUG","PARTITION");
         User pivot = newList.get(high);
         int i = (low - 1); // index of smaller element
 
         for (int j = low; j < high; j++) {
-            String []s1=newList.get(j).getTime().split(":",2);
-            SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-            String []s2=pivot.getTime().split(":",2);
-            Date d1=sdf.parse(s1[0]);
-            Date d2=sdf.parse(s2[0]);
-            // Nếu phần tử hiện tại nhỏ hơn chốt
-            Log.d("DEBUG",s2[1] + "++" +s1[1]+"++"+ s2[1].compareTo(s1[1]));
-            if (  d2.compareTo(d1)<=0 ) {
-                Log.d("DEBUG",d2+ " after"+ d1);
-
-                //if (s2[1].compareTo(s1[1]) < 0) {
-                     i++;
-                    User temp = new User(newList. get(i).getTime(), newList.get(i).getName(), newList.get(i).getAvatar());
-                    newList.get(i).setName(newList.get(j).getName());
-                    newList.get(i).setAvatar(newList.get(j).getAvatar());
-                    newList.get(i).setTime(newList.get(j).getTime());
-                    newList.get(j).setName(temp.getName());
-                    newList.get(j).setAvatar(temp.getAvatar());
-                    newList.get(j).setTime(temp.getTime());
-              // }
+            if ( newList.get(j).getId()<pivot.getId()) {
+                i++;
+                User temp = new User(newList. get(i).getTime(), newList.get(i).getName(), newList.get(i).getAvatar());
+                temp.setId(newList.get(i).getId());
+                newList.get(i).setId(newList.get(j).getId());
+                newList.get(i).setName(newList.get(j).getName());
+                newList.get(i).setAvatar(newList.get(j).getAvatar());
+                newList.get(i).setTime(newList.get(j).getTime());
+                newList.get(j).setName(temp.getName());
+                newList.get(j).setAvatar(temp.getAvatar());
+                newList.get(j).setTime(temp.getTime());
+                newList.get(j).setId(temp.getId());
             }
         }
         User temp = new User(newList.get(i + 1).getTime(),newList.get(i + 1).getName(),newList.get(i + 1).getAvatar());
-        newList.get(i+ 1).setName(newList.get(high).getName());
+        temp.setId(newList.get(i+1).getId());
+        newList.get(i+1).setId(newList.get(high).getId());
+        newList.get(i+1).setName(newList.get(high).getName());
         newList.get(i+1).setAvatar(newList.get(high).getAvatar());
         newList.get(i+1).setTime(newList.get(high).getTime());
         newList.get(high).setName(temp.getName());
         newList.get(high).setAvatar(temp.getAvatar());
         newList.get(high).setTime(temp.getTime());
+        newList.get(high).setId(temp.getId());
         return i + 1;
     }
 }

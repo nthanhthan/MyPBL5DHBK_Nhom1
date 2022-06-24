@@ -39,7 +39,7 @@ public class MainApp extends AppCompatActivity implements HistoryAdapter.OnPerso
        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
            switch (item.getItemId()){
                case R.id.home:
-                   replaceFragment(new HomeFragment());
+                   replaceFragment(new HistoryFragment());
                    break;
                case R.id.history:
                    replaceFragment(new HistoryFragment());

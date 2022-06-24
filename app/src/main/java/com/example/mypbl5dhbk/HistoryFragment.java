@@ -64,7 +64,7 @@ public class HistoryFragment extends Fragment implements HistoryAdapter.OnPerson
                 });
 
       // Inflate the layout for this fragment
-mView=inflater.inflate(R.layout.fragment_history, container, false);
+        mView=inflater.inflate(R.layout.fragment_history, container, false);
 
         rcv = mView.findViewById(R.id.rv_history);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
@@ -80,9 +80,6 @@ mView=inflater.inflate(R.layout.fragment_history, container, false);
         for (int i=newList.size()-1;i>=0;i--){
             listUser.add(newList.get(i));
         }
-            for(User i:newList){
-                listUser.add(i);
-            }
             historyAdapter.notifyDataSetChanged();
         }
 
