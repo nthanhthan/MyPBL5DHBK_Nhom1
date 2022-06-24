@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mypbl5dhbk.HistoryFragment;
-import com.example.mypbl5dhbk.HomeFragment;
 import com.example.mypbl5dhbk.MainActivity;
 import com.example.mypbl5dhbk.Model.User;
 import com.example.mypbl5dhbk.OpenDoorFragment;
@@ -35,12 +34,9 @@ public class MainApp extends AppCompatActivity implements HistoryAdapter.OnPerso
         binding = ActivityMainAppBinding.inflate(getLayoutInflater());
         View viewRoot = binding.getRoot();
         setContentView(viewRoot);
-        replaceFragment(new HomeFragment());
+        replaceFragment(new HistoryFragment());
        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
            switch (item.getItemId()){
-               case R.id.home:
-                   replaceFragment(new HistoryFragment());
-                   break;
                case R.id.history:
                    replaceFragment(new HistoryFragment());
                    Log.d("msg", "history");

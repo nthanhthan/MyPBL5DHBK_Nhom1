@@ -90,8 +90,12 @@ public class MainActivity extends AppCompatActivity {
                                     } catch (ParseException e) {
                                         e.printStackTrace();
                                     }
-                                    if(newList.get(0).getName().compareTo("Unknown")==0)
+                                    Log.d("Thongbao",newList.get(newList.size()-1).getId().toString());
+                                    if(newList.get(newList.size()-1).getName().compareTo("Unknown")==0){
+                                        Log.d("Thongbao","da co");
                                         notification();
+                                    }
+
 //                                    if(listUser.size()>0){
 //                                        sort(0,listUser.size()-1);
 //                                        nameUser=newList.get(0).getTime();}

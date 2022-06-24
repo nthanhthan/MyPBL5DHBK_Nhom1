@@ -33,32 +33,47 @@ public class OpenDoorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mView=inflater.inflate(R.layout.fragment_open_door, container, false);
-
+        Log.d("Door","Run");
         toggleButton = mView.findViewById(R.id.toggle);
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
+        DatabaseReference myRef=database.getReference("Door");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String checkDoor= snapshot.getValue().toString();
+                Log.d("Door",checkDoor);
+                Boolean opendoor=Boolean.parseBoolean(checkDoor);
+                toggleButton.setChecked(opendoor);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean checkOpen=toggleButton.isChecked();
-                FirebaseDatabase database=FirebaseDatabase.getInstance();
-                DatabaseReference myRef=database.getReference("Door");
                 myRef.setValue(checkOpen);
-                myRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
-                        Boolean checkDoor=(Boolean) snapshot.getValue();
-                        Log.d("DEBUG1",checkDoor.toString());
-                        toggleButton.setChecked(checkDoor);
-
-                    }
-
-
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-
-                });
+//                myRef.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
+//                        Boolean checkDoor=(Boolean) snapshot.getValue();
+//                        Log.d("DEBUG1",checkDoor.toString());
+//                        toggleButton.setChecked(checkDoor);
+//
+//                    }
+//
+//
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//
+//                });
             }
         });
 
