@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".OpenDoorFragment"
     android:orientation="vertical"
-    android:background="@drawable/blue111">
+    android:background="@drawable/img">
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -23,33 +24,28 @@
         android:layout_marginTop="45dp"
         android:fontFamily="cursive"
         android:text="Owner of the house"
-        android:textSize="35dp" />
+        android:textSize="25dp" />
 
 
+    <androidx.cardview.widget.CardView
 
-    <ToggleButton
-        android:id="@+id/toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="360dp"
         android:layout_marginLeft="80dp"
-        android:background="@drawable/toggle"
-        android:text="ToggleButton"
-        android:textOff=""
-        android:textOn=""
-        />
+        app:cardCornerRadius="20dp">
+        <ToggleButton
+            android:id="@+id/toggle"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:background="@drawable/toggle"
+            android:text="ToggleButton"
+            android:textOff=""
+            android:textOn=""
+            />
 
-    <TextView
+    </androidx.cardview.widget.CardView>
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="150dp"
-        android:fontFamily="@font/bilbo_swash_caps"
-        android:text="Click to open the door !!!"
-        android:textColor="@color/black"
-        android:textSize="50sp" />
 
 
 </FrameLayout>

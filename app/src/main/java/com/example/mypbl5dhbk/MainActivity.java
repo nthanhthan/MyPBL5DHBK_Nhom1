@@ -13,6 +13,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View viewRoot = binding.getRoot();
         setContentView(viewRoot);
@@ -62,13 +67,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String name=binding.edEmail.getText().toString();
                 String pass=binding.edPassword.getText().toString();
-
+                if(name.isEmpty()|| pass.isEmpty()){
+                    Toast.makeText(MainActivity.this,"Please Fill Out Application",Toast.LENGTH_SHORT).show();
+                }
+                else{
                 listUser=new ArrayList<>();
                 fAuth.signInWithEmailAndPassword(name,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(MainActivity.this,"ThanhCong",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"Success",Toast.LENGTH_SHORT).show();
                             FirebaseDatabase database=FirebaseDatabase.getInstance();
                             DatabaseReference myRef=database.getReference("User");
                             myRef.addValueEventListener(new ValueEventListener() {
@@ -113,10 +121,10 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                         }else{
-                            Toast.makeText(MainActivity.this,"ThatBai",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"Failed",Toast.LENGTH_SHORT).show();
                         }
                     }
-                });
+                });}
             }
         });
     }
@@ -207,4 +215,5 @@ public class MainActivity extends AppCompatActivity {
         newList.get(high).setId(temp.getId());
         return i + 1;
     }
+
 }

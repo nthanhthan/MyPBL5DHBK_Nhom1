@@ -17,15 +17,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 public class OpenDoorFragment extends Fragment {
-    //private FragmentOpenDoorBinding binding;
     ToggleButton toggleButton;
-    ImageView imageView;
+   // ImageView imageView;
     private View mView;
     private MainActivity mainActivity;
     public OpenDoorFragment() {
-        // Required empty public constructor
     }
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);}
@@ -35,6 +32,11 @@ public class OpenDoorFragment extends Fragment {
         mView=inflater.inflate(R.layout.fragment_open_door, container, false);
         Log.d("Door","Run");
         toggleButton = mView.findViewById(R.id.toggle);
+        if(toggleButton.isChecked()){
+            mView.setBackgroundResource(R.drawable.img_1);
+        }else {
+            mView.setBackgroundResource(R.drawable.img);
+        }
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference myRef=database.getReference("Door");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -44,6 +46,11 @@ public class OpenDoorFragment extends Fragment {
                 Log.d("Door",checkDoor);
                 Boolean opendoor=Boolean.parseBoolean(checkDoor);
                 toggleButton.setChecked(opendoor);
+                if(toggleButton.isChecked()){
+                    mView.setBackgroundResource(R.drawable.img_1);
+                }else {
+                    mView.setBackgroundResource(R.drawable.img);
+                }
             }
 
             @Override
@@ -55,25 +62,15 @@ public class OpenDoorFragment extends Fragment {
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+               // mView.setBackgroundResource(R.drawable.img);
                 boolean checkOpen=toggleButton.isChecked();
-                myRef.setValue(checkOpen);
-//                myRef.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
-//                        Boolean checkDoor=(Boolean) snapshot.getValue();
-//                        Log.d("DEBUG1",checkDoor.toString());
-//                        toggleButton.setChecked(checkDoor);
-//
-//                    }
-//
-//
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//
-//                });
+                if(checkOpen){
+                    myRef.setValue(checkOpen);
+                    mView.setBackgroundResource(R.drawable.img_1);
+                }else {
+                    mView.setBackgroundResource(R.drawable.img);
+                }
+
             }
         });
 

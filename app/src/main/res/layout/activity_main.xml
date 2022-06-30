@@ -43,7 +43,7 @@
                     android:layout_marginTop="80dp"
 
                     android:fontFamily="@font/aguafina_script"
-                    android:text="Welcome   to   SmartDoor !!!"
+                    android:text="Welcome  to  SmartDoor !!!"
                     android:textSize="30dp" />
 
             </LinearLayout>
@@ -133,23 +133,28 @@
             android:id="@+id/btn_getIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get in"
+            android:text="Login"
+            android:elevation="10dp"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="23sp"
-            android:backgroundTint="#0000FF"
+            android:backgroundTint="#4182e8"
+            android:focusable="true"
+            android:background="@drawable/rounded_rectangle"
             />
 
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:layout_marginLeft="40dp"
+            android:text="Reset"
+            android:elevation="10dp"
+            android:layout_marginLeft="50dp"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="23sp"
-            android:backgroundTint="#0000FF"
+            android:backgroundTint="#4182e8"
+            android:background="@drawable/rounded_rectangle"
         />
 
     </LinearLayout>

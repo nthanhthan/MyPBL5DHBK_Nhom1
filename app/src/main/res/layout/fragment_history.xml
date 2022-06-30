@@ -6,13 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HistoryFragment"
     android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:theme="@style/AppTheme"
+    tools:openDrawer="start">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#0033CC"
+        android:layout_height="40dp"
+        android:background="#3565b9"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/rv_history"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,61 +26,51 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_keyboard_arrow_left_24">
+                <EditText
+                    android:id="@+id/edit_search"
+                    android:layout_width="260dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="0dp"
+                    android:paddingLeft="20dp"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            <Button
+                android:id="@+id/btn_Calendar"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_baseline_calendar_month_24">
 
-            </ImageView>
+            </Button>
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginBottom="2dp"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/ic_baseline_menu_open_24"
+                android:onClick="showPopup"
+                ></Button>
 
-            <EditText
-                android:id="@+id/search"
-                android:layout_width="252dp"
-                android:layout_height="64dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="0dp"
-                android:paddingLeft="20dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_person_search_24">
-
-            </ImageView>
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_baseline_menu_open_24">
-
-            </ImageView>
 
 
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/aguafina_script"
-            android:text="History"
-            android:textColor="@color/white"
-            android:textSize="30dp"></TextView>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_history"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="110dp"
-            android:background="@color/white"></androidx.recyclerview.widget.RecyclerView>
-        />
-
-
-
+        android:id="@+id/rv_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:background="@color/bgr"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="82dp"></androidx.recyclerview.widget.RecyclerView>
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

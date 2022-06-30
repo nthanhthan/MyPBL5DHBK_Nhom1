@@ -8,11 +8,10 @@
     android:background="@color/white"
     tools:context=".View.MainApp">
 
-
   <FrameLayout
       android:id="@+id/frameLayout"
       android:layout_width="match_parent"
-      android:layout_height="600dp">
+      android:layout_height="615dp">
       app:layout_constraintBottom_toBottomOf="@+id/BottomNavigationView"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
